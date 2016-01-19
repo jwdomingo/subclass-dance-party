@@ -9,6 +9,11 @@
   makeTrumpDancer.prototype.step = function(timeBetweenSteps) {
     makeDancer.prototype.step.call(this, timeBetweenSteps);
     var pos = this.$node.position();
+    var footer = $(window).height() - 130;
+
+    if ( pos.top > footer ) {
+      this.$node.remove();
+    }
 
     this.setPosition(pos.top + 20, pos.left + 20);
   };
