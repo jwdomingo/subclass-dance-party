@@ -6,7 +6,7 @@ describe("blinkyDancer", function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it("should have a jQuery $node object", function() {
@@ -20,10 +20,10 @@ describe("blinkyDancer", function() {
   });
 
   describe("dance", function() {
-    it("should call step at least once per second", function() {
+    it("should call step at least once per two seconds", function() {
       sinon.spy(blinkyDancer, "step");
       expect(blinkyDancer.step.callCount).to.be.equal(0);
-      clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
+      // clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
       clock.tick(timeBetweenSteps);
 
       expect(blinkyDancer.step.callCount).to.be.equal(1);
@@ -33,3 +33,23 @@ describe("blinkyDancer", function() {
     });
   });
 });
+
+
+describe("fatDancer", function() {
+  var fatDancer;
+  beforeEach(function() {
+    fatDancer = new makeFatDancer(10, 20, 100);
+  });
+
+
+  it("should have a jQuery $node object", function() {
+    expect(fatDancer.$node).to.be.an.instanceof(jQuery);
+  });
+
+
+  it("should get reaaaaaallly fat", function(){
+    expect(fatDancer.$node.hasClass('dancer fat-dancer')).to.be.true;
+
+  });
+});
+
