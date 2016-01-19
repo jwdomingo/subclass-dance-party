@@ -4,6 +4,10 @@ body, html{
 body{
   margin: 0px;
   background-color:#444;
+  background-image: url('assets/hotlinebling2.gif');
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
