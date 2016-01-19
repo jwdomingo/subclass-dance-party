@@ -1,4 +1,5 @@
 var makeTrumpDancer = function(top, left, timeBetweenSteps) {
+  top = '60vh'
   makeDancer.call(this, top, left, timeBetweenSteps);
 };
 makeTrumpDancer.prototype = Object.create(makeDancer.prototype);
