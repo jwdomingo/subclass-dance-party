@@ -9,6 +9,8 @@ body{
   background-repeat: no-repeat; 
   background-position: center;
   font-size: 18px;
+  max-height: 100vh;
+  overflow-y: hidden;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -19,7 +21,7 @@ body, a:link, a:visited, a:active{
 }
 .topbar{
   height:32px;
-  background-color: #555;
+  background-color: black;
 }
 .title{
   background-color: #777;
@@ -34,6 +36,27 @@ body, a:link, a:visited, a:active{
   margin-left: -45px;
   margin-top: -45px;
 }
-.dancer, .fat-dancer{
+.dancer, .fat-dancer, .trump-dancer{
  transition: all 1000ms;
+}
+.trump-dancer{
+  display: inline-block;
+  position: absolute;
+  background-image: url('http://24.media.tumblr.com/tumblr_men4drfXRu1qe5icro1_400.gif');
+  background-size: 50px;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+#dancefloor{
+
+}
+
+footer {
+  width: 100%;
+  height: 130px;
+  background: black;
+  position: absolute;
+  bottom: 0;
 }
