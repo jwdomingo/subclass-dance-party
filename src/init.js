@@ -35,11 +35,12 @@ $(document).ready(function() {
 
   $(".lineUpButton").on("click", function(event) {
     var dancers = window.dancers;
+    var x = $(window).width()/2;
 
     for (var i = 0; i < dancers.length; i++){
+      var y = $(window).height()/dancers.length*i+1;
       var dancer = dancers[i];
-      console.log(dancer);
-      dancer.lineUp($(window).width()/2);
+      dancer.lineUp(x,y);
     }
 
   });
