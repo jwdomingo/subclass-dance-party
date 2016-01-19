@@ -37,7 +37,7 @@ body, a:link, a:visited, a:active{
   margin-top: -45px;
 }
 .dancer, .fat-dancer, .trump-dancer{
- transition: all 1000ms;
+ transition: all 4000ms;
 }
 .trump-dancer{
   display: inline-block;
