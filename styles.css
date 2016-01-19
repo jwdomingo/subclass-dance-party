@@ -22,6 +22,14 @@ body, a:link, a:visited, a:active{
 }
 .dancer{
   border:10px solid cornflowerblue;
-  border-radius:10px;
+  border-radius:50%;
   position:absolute;
+}
+.fat-dancer{
+  border-width: 100px;
+  margin-left: -45px;
+  margin-top: -45px;
+}
+.dancer, .fat-dancer{
+ transition: all 1000ms;
 }
