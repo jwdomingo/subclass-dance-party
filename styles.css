@@ -9,7 +9,7 @@ body{
   background-repeat: no-repeat; 
   background-position: center;
   font-size: 18px;
-  max-height: 100vh;
+  max-height:6100vh;
   overflow-y: hidden;
 }
 body, a:link, a:visited, a:active{
@@ -38,7 +38,7 @@ body, a:link, a:visited, a:active{
   margin-top: -45px;
 }
 .dancer, .fat-dancer, .trump-dancer{
- transition: all 4000ms;
+ transition: all 6000ms linear;
 }
 .trump-dancer{
   display: inline-block;
