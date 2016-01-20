@@ -1,8 +1,8 @@
 $(document).ready(function() {
   window.dancers = [];
   window.score = 0;
-
-  $(".addDancerButton").on("click", function(event) {
+  
+    $(".startButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -22,31 +22,19 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    var addDancerButton = function(dancerMakerFunction) {
+      var dancer = new dancerMakerFunction(undefined,undefined,200);
 
-    var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      200
-    );
+      window.dancers.push(dancer);
 
-    window.dancers.push(dancer);
+      $('body').append(dancer.$node);
+    };
 
-    $('body').append(dancer.$node);
+    var clearID = setInterval( function() {addDancerButton(dancerMakerFunction);}, 600);
+    setTimeout(function(){ clearInterval(clearID); }, 5000);
   });
 
-  $(".lineUpButton").on("click", function(event) {
-    var dancers = window.dancers;
-    var x = $(window).width()/2;
-
-    for (var i = 0; i < dancers.length; i++){
-      var y = $(window).height()/dancers.length*i+1;
-      var dancer = dancers[i];
-      dancer.lineUp(x,y);
-    }
-
-  });
-
-  $(document).on('keydown', function() {
+  $(document).on('keydown', function(event) {
     var key = String.fromCharCode(event.keyCode);
     if (key === 'A' || key === 'S' || key === 'D' || key === 'F') {
       var $dancers = $('.trump-dancer');
