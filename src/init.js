@@ -45,24 +45,33 @@ $(document).ready(function() {
 
   });
 
-  $(document).on('keypress', function() {
-    var $dancers = $('.trump-dancer');
-    var footer = $(window).height() - 200;
+  $(document).on('keydown', function() {
+    var key = String.fromCharCode(event.keyCode);
+    if (key === 'A' || key === 'S') {
+      var $dancers = $('.trump-dancer');
+      var y = $(window).height() - 200;
+      var x = $(window).width() / 2;
 
-    var growStyle = {
-      'background-size': '375px',
-      'height': '375px',
-      'width': '375px'
-    };
+      var growStyle = {
+        'background-size': '375px',
+        'height': '375px',
+        'width': '375px'
+      };
 
-    $dancers.each(function(i) {
-      
-      var $node = $($dancers[i]);
-      console.log('top', $node.position().top, 'footer', footer);
-      if ($node.position().top > footer) {
-        $node.css(growStyle);
-        setTimeout(function(){ $node.remove(); },2000);
-      }
-    });
-  });
-});
+      $dancers.each(function(i) {
+        
+        var $node = $($dancers[i]);
+        if ($node.position().top > y) {
+          if (key === 'A' && $node.position().left < x) {
+            $node.css(growStyle);
+            setTimeout(function(){ $node.remove(); },2000);
+          } else if (key === 'S' && $node.position().left >= x) {
+            $node.css(growStyle);
+            setTimeout(function(){ $node.remove(); },2000);
+          }
+        }
+      });  
+    }
+    
+  }); // keydown
+}); // end
