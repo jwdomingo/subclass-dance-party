@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.score = 0;
 
   $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -67,23 +68,24 @@ $(document).ready(function() {
       };
 
       $dancers.each(function(i) {
+
+        var hit = function(node) {
+          window.score += 10;
+          $('.score').text(window.score);
+          node.css(growStyle);
+          setTimeout(function(){ node.remove(); },2000);        
+        };
         
         var $node = $($dancers[i]);
         if ($node.position().top > y && $node.position().top < windowBottom) {
           if (key === 'A' && $node.position().left < x/4) {
-            $node.css(growStyle);
-            console.log('hello');
-            setTimeout(function(){ $node.remove(); },2000);
+            hit($node);
           } else if (key === 'S' && $node.position().left < x/2 && $node.position().left > x/4) {
-            console.log('hello');
-            $node.css(growStyle);
-            setTimeout(function(){ $node.remove(); },2000);
+            hit($node);
           } else if (key === 'D' && $node.position().left > x/2 && $node.position().left < x*3/4) {
-            $node.css(growStyle);
-            setTimeout(function(){ $node.remove(); },2000);
+            hit($node);
           } else if (key === 'F' && $node.position().left > x*3/4) {
-            $node.css(growStyle);
-            setTimeout(function(){ $node.remove(); },2000);
+            hit($node);
           }
         }
       });  
