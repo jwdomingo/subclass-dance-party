@@ -10,7 +10,9 @@
     // makeDancer.prototype.step.call(this, timeBetweenSteps);
     // var pos = this.$node.position();
     var y = $(window).height() - 130;
-    var x = $(window).width() * 7 / 8;
+    
+
+    var x = $(window).width() * ((Math.floor(Math.random() * 4) + 1)*2-1)/8;
 
     var self = this;
     setTimeout(function(){ self.setPosition(y,x); }, 1000);
