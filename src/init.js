@@ -47,25 +47,41 @@ $(document).ready(function() {
 
   $(document).on('keydown', function() {
     var key = String.fromCharCode(event.keyCode);
-    if (key === 'A' || key === 'S') {
+    if (key === 'A' || key === 'S' || key === 'D' || key === 'F') {
       var $dancers = $('.trump-dancer');
       var y = $(window).height() - 200;
-      var x = $(window).width() / 2;
+      var windowBottom = $(window).height();
+      var x = $(window).width();
 
+      // var growStyle = {
+      //   'background-size': '375px',
+      //   'height': '375px',
+      //   'width': '375px'
+      // };
       var growStyle = {
+        'background-image': "url('http://i517.photobucket.com/albums/u333/PhotoPun/explosion.gif')",
         'background-size': '375px',
         'height': '375px',
-        'width': '375px'
+        'width': '375px',
+        'transition': '100ms'
       };
 
       $dancers.each(function(i) {
         
         var $node = $($dancers[i]);
-        if ($node.position().top > y) {
-          if (key === 'A' && $node.position().left < x) {
+        if ($node.position().top > y && $node.position().top < windowBottom) {
+          if (key === 'A' && $node.position().left < x/4) {
+            $node.css(growStyle);
+            console.log('hello');
+            setTimeout(function(){ $node.remove(); },2000);
+          } else if (key === 'S' && $node.position().left < x/2 && $node.position().left > x/4) {
+            console.log('hello');
             $node.css(growStyle);
             setTimeout(function(){ $node.remove(); },2000);
-          } else if (key === 'S' && $node.position().left >= x) {
+          } else if (key === 'D' && $node.position().left > x/2 && $node.position().left < x*3/4) {
+            $node.css(growStyle);
+            setTimeout(function(){ $node.remove(); },2000);
+          } else if (key === 'F' && $node.position().left > x*3/4) {
             $node.css(growStyle);
             setTimeout(function(){ $node.remove(); },2000);
           }
