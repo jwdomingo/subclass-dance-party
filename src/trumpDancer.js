@@ -9,7 +9,7 @@
   makeTrumpDancer.prototype.step = function(timeBetweenSteps) {
     // makeDancer.prototype.step.call(this, timeBetweenSteps);
     // var pos = this.$node.position();
-    var y = $(window).height() - 130;
+    var y = $(window).height() + 130;
     
 
     var x = $(window).width() * ((Math.floor(Math.random() * 4) + 1)*2-1)/8;
